@@ -1,0 +1,14 @@
+
+ body{
+    background-image:url('/100hours/project/public/image/23.jpeg') !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}       
+
+        
+.space-middle{
+    display: flex;
+    justify-content: center;
+}

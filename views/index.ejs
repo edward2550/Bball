@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"  data-theme="halloween">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="/css/index.css" rel="stylesheet" type="text/css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="hero min-h-screen" style="background-image: url(image/kobe.png);">
+        <div class="hero-overlay bg-opacity-80"></div>
+        <div class="hero-content text-center text-neutral-content">
+          <div class="max-w-md">
+            <h1 class="mb-5 text-5xl font-bold">2k Feeders leauge</h1>
+            <p class="mb-7 text-2xl" >Your own personal baseketball stat tracker, come join the feeders leauge.</p>
+            <input type="hidden" name="remember" value="true">
+            <class class="btn-group">
+                <a href="/login" ><button class="btn btn-primary btn-active">Sign in</button></a>
+                <a href="/signup"><button  class="btn">Sign up</button></a>
+              </class>
+          </div>
+        
+        </div>
+      </div>
+      <!-- <form class="mt-10 space-y-6" action="/login" method="POST">
+        <input type="hidden" name="remember" value="true">
+      
+            <button class="btn btn-primary"><a href="/login">Sign In</a></button>
+            <button class="btn btn-secondary" ><a href="/signup">Sign Up</a></button>
+      
+      </form> -->
+</body>
+<%- include('partials/footer') -%>
+</html>

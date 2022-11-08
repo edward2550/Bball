@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="halloween">
+  <link>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+  <title>Document</title>
+  <link
+    href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <div class="navbar bg-base-100">
+    <div class=" flex-1">
+      <a class="btn btn-ghost normal-case text-xl">2k</a>
+    </div>
+      <div class="flex-none">
+        <ul class="menu menu-horizontal p-0">
+            <li><a href="/">Main</a></li>
+            <li><a href="/stats">Personal Stats</a></li>
+            <li><a href="/logout">Log Out</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="min-[959px]:hidden flex-none">
+      <ul class="menu menu-horizontal bg-base-100 rounded-box">
+        <li><a id=2k22>2k22</a></li>
+        <li><a id="oPlayer">First Team O</a></li>
+        <li><a id="dPlayer">First Team D</a></li>
+      </ul>
+      <ul class="menu menu-horizontal bg-base-100 rounded-box">
+        <li><a>FOY</a></li>
+        <li><a>DPOY</a></li>
+        <li><a>MIP</a></li>
+      </ul>
+      <ul class="menu menu-horizontal bg-base-100 rounded-box">
+        <li><a>ROY</a></li>
+        <li><a>COY</a></li>
+        
+      </ul>
+    </div>
+  </div>
+  <div class="min-[0px]:hidden min-[959px]:flex justify-center   bg-base-300">
+    <div class=" bg-base-200">
+      <div class=" btn-group ">
+        <a class="btn btn-primary modal-button" id='2k22'>2k22</a>
+        <button  id="foy" class="btn p-0"> <label  class="btn btn-primary modal-button">Feeder of the Year</label></button>
+        <button id="oPlayer" class="btn p-0"><label class=" btn btn-primary modal-button">First Team offense</label></button>
+        <button  id="dPlayer" class="btn p-0"> <label  class=" btn btn-primary modal-button">First Team Defense</label></button>
+        <button  id="mvp" class="btn p-0"> <label  class="btn btn-primary modal-button">MVP</label></button>
+        <button  id="mip" class="btn p-0"> <label  class="btn btn-primary modal-button">Mip</label></button>
+        <button  id="dpoy" class="btn p-0"> <label  class=" btn btn-primary modal-button">DPOY</label></button>
+        <button  id="roy" class="btn p-0"> <label  class=" btn btn-primary modal-button">ROY</label></button>
+        <button  id="coy" class="btn p-0"> <label  class=" btn btn-primary modal-button">COY</label></button>
+        
+       
+      </div>
+    </div>
+  </div>
+    
+
+
+    <div id="wrapper"></div>
+  
+     
+       
+    <%if(user._id == '6359abf3fa08f02a9900d498'){ %> 
+    <form action="/statsSheet/createStats"  method='POST'>
+        <label for="nameItem">Name</label>
+        <input type="text" placeholder="Enter Player gamerTage" name='nameItem'> 
+        <label for="PPGITem">PPG</label>
+        <input type="text" placeholder="Enter PPG" name='PPGItem'>
+        <label for="positionItem">Position</label>
+        <input type="text" placeholder="Enter Position" name='positionItem'>
+        <label for="teamAverageItem">Team Average</label>
+        <input type="text" placeholder="Enter Team Average" name='teamAverageItem'>
+        <label for="RPGItem">RPG</label>
+        <input type="text" placeholder="Enter RPG" name='RPGItem'>
+        <label for="APGItem">APG</label>
+        <input type="text" placeholder="Enter APG" name='APGItem'>
+        <label for="blockItem">block</label>
+        <input type="text" placeholder="Enter Todo Item" name='blockItem'>
+        <label for="stealItem">Steals</label>
+        <input type="text" placeholder="Enter Steals" name='stealItem'>
+        <label for="FGItem">FG</label>
+        <input type="text" placeholder="Enter FG" name='FGItem'>
+        <label for="threePtItem">Three Point %</label>
+        <input type="text" placeholder="Enter Three Point %" name='threePtItem'>
+        <label for="FtItem">FT</label>
+        <input type="text" placeholder="Enter FT" name='FtItem'>
+         <label for="assitTo">Assit/To</label>
+        <input type="text" placeholder="Enter Assit/To" name='assitToItem'>
+        <label>offense</label>
+        <input name="Oitem" type="checkbox" checked="checked" class="checkbox" value="true" />
+        <label>defense</label>
+        <input name="Ditem" type="checkbox" checked="checked" class="checkbox" value="true" />
+        <label>Mvp</label>
+        <input name="Mvpitem" type="checkbox" checked="checked" class="checkbox" value="true" />
+        <label>Mip</label>
+        <input name="Mipitem" type="checkbox" checked="checked" class="checkbox" value="true" />
+        <label>Dpoy</label>
+        <input name="Dpoyitem" type="checkbox" checked="checked" class="checkbox" value="true" />
+        <label>Roy</label>
+        <input name="Royitem" type="checkbox" checked="checked" class="checkbox" value="true" />
+        <label>Foy</label>
+        <input name="Foyitem" type="checkbox" checked="checked" class="checkbox" value="true" />
+        <label>Coy</label>
+        <input name="Coyitem" type="checkbox" checked="checked" class="checkbox" value="true" />
+        <input type="submit">
+    </form>
+    <%}%>
+ 
+    <input type="checkbox" id="my-modal-delete" class="modal-toggle" class='hidden' />
+    <div class="modal">
+      <div class="modal-box relative">
+        <label for="my-modal-delete" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+        <form id="formDelete" action="" method="POST">
+        <p id='delete-message'></p>
+        <button class="btn btn-primary">delete</button>
+      </form>
+      </div>
+    </div>
+
+
+    <input type="checkbox" id="my-modal-update" class="modal-toggle" />
+<div class="modal">
+  <div class="modal-box relative">
+    <label for="my-modal-update" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+    <h3 id ='editStat'class="text-lg font-bold">Edit player stats </h3>
+    <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-500">
+      <form  id='form-update' action=""  method='POST'>
+          <div class="card-body">
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Name</span>
+              </label>
+              <input type="text" placeholder="Enter Player Name" name='nameItem' class="input input-bordered" />
+            </div>
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Points Per Game</span>
+              </label>
+              <input type="text" placeholder="PPG" name='PPGItem' class="input input-bordered" />
+            </div>
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Position</span>
+              </label>
+              <input type="text" placeholder="Enter Position" name='positionItem' class="input input-bordered" />
+            </div>
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Team Average</span>
+              </label>
+              <input type="text" placeholder="Enter Team Average" name='teamAverageItem' class="input input-bordered" />
+            </div>
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Rebounds per Game</span>
+              </label>
+              <input type="text" placeholder="Enter RPG" name='RPGItem' class="input input-bordered" />
+            </div>
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Assist per Game</span>
+              </label>
+              <input type="text" placeholder="Enter APG" name='APGItem' class="input input-bordered" />
+            </div>
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Blocks</span>
+              </label>
+              <input type="text" placeholder="Enter BPG" name='blockItem' class="input input-bordered" />
+            </div>
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Steals</span>
+              </label>
+              <input type="text" placeholder="Enter SPG" name='stealItem' class="input input-bordered" />
+            </div>
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Field goal</span>
+              </label>
+              <input type="text" placeholder="Enter FG" name='FGItem' class="input input-bordered" />
+            </div>
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">3-Point field goal</span>
+              </label>
+              <input type="text" placeholder="Enter Three Point %" name='threePtItem' class="input input-bordered" />
+            </div>
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Free Throw </span>
+              </label>
+              <input type="text" placeholder="Enter FT" name='FtItem' class="input input-bordered" />
+            </div>
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Assist/turnover ratio</span>
+              </label>
+              <input type="text" placeholder="Enter Assit/To" name='assitToItem' class="input input-bordered" />
+            </div>
+            <div class="form-control mt-6">
+              <button class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </div>
+  </div>
+</div>
+
+<script src="js/stats.js"></script>
+<script  src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
+<script>
+      let  data = <%-JSON.stringify(stats)%>;
+      let user = <%-JSON.stringify(userId)%>;
+      const modal = document.getElementById('my-modal-update')
+      const updateForm = document.getElementById('form-update')
+      const modalDelete = document.getElementById('my-modal-delete')
+      const deleteForm = document.getElementById('formDelete')
+      const editPlayerName = document.getElementById('editStat')
+      const deleteP = document.getElementById('delete-message')
+      const offenseButton = document.getElementById('oPlayer')
+      const deffenseButton = document.getElementById('dPlayer')
+      const k22Button = document.getElementById('2k22')
+      const mvpButton = document.getElementById('mvp')
+      const mipButton = document.getElementById('mip')
+      const dpoyButton = document.getElementById('dpoy')
+      const royButton = document.getElementById('roy')
+      const foyButton = document.getElementById('foy')
+      const coyButton = document.getElementById('coy')
+
+    
+      k22Button.onclick = () => {
+        window.location.href = '/statsSheet?filter=2k22stats'
+      }
+
+      offenseButton.onclick = () => {
+        window.location.href = "/statsSheet?filter=offense"
+      }
+      deffenseButton.onclick = () => {
+        window.location.href = "/statsSheet?filter=defense"
+      }
+      mvpButton.onclick = () => {
+        window.location.href = "/statsSheet?filter=mvp"
+      }
+      
+      mipButton.onclick = () => {
+        window.location.href = "/statsSheet?filter=mip"
+      }
+
+      dpoyButton.onclick = () => {
+        window.location.href = "/statsSheet?filter=dpoy"
+      }
+
+      royButton.onclick = () => {
+        window.location.href = "/statsSheet?filter=roy"
+      }
+
+      
+
+      coyButton.onclick = () => {
+        window.location.href = "/statsSheet?filter=coy"
+      }
+ 
+
+function changResults(callback){
+results = parsedD
+console.log(results)
+callback()
+
+}
+// changResults()
+  function callbackBic() {
+  location.reload()
+  console.log('callone')
+}
+   
+    let results = data
+    
+    let offense = []
+    let defense = []
+
+
+function getOffense(data){
+  for(let i = 0; i < data.length; i++){
+    if(data[i][14] == true){
+      
+      offense.push(data[i])
+    }
+  }
+}
+
+ function loopData(data,user){
+  for(let i = 0; i < data.length; i++){
+    if(data[i][1] == user[0].userId){
+      results.push(data[i])
+    }
+  }
+ }
+
+
+
+
+
+
+// function load(){
+//   results = JSON.parse(localStorage.getItem("Offense")) || [];
+ 
+// }
+
+// function notes() {
+//   results = offense;
+//   return localStorage.setItem("Offense", JSON.stringify(results)); 
+// }
+
+// function successCallback(result) {
+//   console.log(`Audio file ready at URL: ${result}`);
+// }
+// function failureCallback(error) {
+//   console.error(`Error generating audio file: ${error}`);
+// }
+
+// offenseButton.onclick = notes().then(successCallback, failureCallback)
+
+// function myPromise(){ new Promise((resolve, reject) =>{
+//     connection = true
+ 
+
+//     if(connection){
+//       resolve(localStorage.setItem("Offense", JSON.stringify(results)))
+//       console.log(results)
+//     } else {
+//       reject('connection failed')
+//     }
+// })
+// }
+// deffenseButton.onclick = () => {myPromise()}
+// myPromise.then(() => {
+//   location.reload()
+// })
+
+
+  // offenseButton.addEventListener('click',window.location.reload())
+
+  // offenseButton.onclick = function(){window.location.reload()}
+// offenseButton.onclick = function(){getOffense(data)}
+// // offenseButton.onclick = function(){callbackBic(getOffense, data)};
+// offenseButton.onclick = function()
+//  console.log(results)
+//  console.log(data)
+// //   console.log(data)
+//   console.log
+//   console.log(user[0].userId)
+
+  new gridjs.Grid({
+      columns: [
+        {name:'Id',hidden:true},{name:'id', hidden:true},'Name','Team Average','position','PPG', 'RPG','APG','Blocks','Steals','FG','3Pt%','FT%','assit/to',user[0].userId == '6359abf3fa08f02a9900d498' ? {
+        name:'Edit',
+        formatter:(cell,row) => {
+          return gridjs.h('button',{
+            className:'py-2 mb-4 px-4 border rounded-md text-white bg-slate-800',
+            onClick: () => {  
+              modal.checked = true;
+              updateForm.setAttribute('action', `/statsSheet/updateStats/${row.cells[0].data}?_method=PUT`)
+              editPlayerName.innerText = `Edit player ${row.cells[2].data} `
+           }
+          },'Edit')
+        }
+      } : {name:"Edit" , hidden:true},
+      user[0].userId == '6359abf3fa08f02a9900d498' ? {
+        name: "Delete" ,
+        formatter:(cell,row)  => { 
+          return gridjs.h('button',{
+            className:'py-2 mb-4 px-4 border rounded-md text-white bg-slate-800',
+            onClick: () => {
+              deleteForm.setAttribute('action', `statsSheet/deleteStats/${row.cells[0].data}?_method=DELETE`)
+              modalDelete.checked = true;
+              deleteP.innerText = `Are you sure you want to delete ${row.cells[2].data}`
+            
+           } 
+          },'Delete')
+        } 
+      }: {name:'Delete', hidden:true } ,
+         ],
+      resizable:true,
+      sort: true,
+      data: results,
+      style:{
+        table: {
+         width: '-webkit-fill-available'
+
+        },
+        th:{
+          'background-color': '#f28c18',
+          'color': 'black',
+          'text-align': 'center',
+          'width': '600px'
+        },
+        td:{
+        }
+      }
+    }).render(document.getElementById("wrapper"));
+    
+//   offenseButton.addEventListener('click',function(){
+//    console.log('button 1')
+   
+//     data = parsedD
+  
+//    console.log(data)
+// })
+
+
+  
+</script>
+   
+    <a href="/logout">Logout</a>
+  
+
+</body>
+<%- include('partials/footer') -%>
+</html>

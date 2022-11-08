@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<link>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+      href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css"
+      rel="stylesheet"
+    />
+</head>
+<body>
+    <h1>Todos</h1>
+    <div id="wrapper"></div>
+    <ul>
+             <% userId.forEach( el => { %>
+                <li class='todoItem' data-id='<%=el._id%>'>
+                    <span ><%= el %></span>
+                    <span class='del'> Delete </span>
+                   <button class='<%= el.teamO === true ? 'teamO' : 'not'%>'> <%=el.teamO %> </button>
+                   <span class='<%= el.teamD === true ? 'teamD' : 'nott'%>'><%= el.teamD %></span>
+                </li>
+        <% }) %>    
+        </ul>
+    <ul>
+    
+
+   
+
+    <form action="/todos/createTodo" enctype="multipart/form-data" method='POST'>
+        <label for="nameItem">Name</label>
+        <input type="text" placeholder="Enter Player gamerTage" name='nameItem'>
+        <label for="PPGITem">PPG</label>
+        <input type="number" placeholder="Enter Todo Item" name='PPGItem'>
+        <label for="positionItem">Position</label>
+        <input type="text" placeholder="Enter Position" name='positionItem'>
+        <label for="teamAverageItem">Team Average</label>
+        <input type="text" placeholder="Enter Team Average" name='teamAverageItem'>
+        <label for="RPGItem">RPG</label>
+        <input type="text" placeholder="Enter RPG" name='RPGItem'>
+        <label for="APGItem">APG</label>
+        <input type="text" placeholder="Enter APG" name='APGItem'>
+        <label for="blockItem">block</label>
+        <input type="text" placeholder="Enter Todo Item" name='blockItem'>
+        <label for="stealItem">Steals</label>
+        <input type="text" placeholder="Enter Steals" name='stealItem'>
+        <label for="FGItem">FG</label>
+        <input type="text" placeholder="Enter FG" name='FGItem'>
+        <label for="threePtItem">Three Point %</label>
+        <input type="text" placeholder="Enter Three Point %" name='threePtItem'>
+        <label for="FtItem">FT</label>
+        <input type="text" placeholder="Enter FT" name='FtItem'>
+         <label for="assitTo">Assit/To</label>
+        <input type="text" placeholder="Enter Assit/To" name='assitToItem'>
+        <input type="submit">
+    </form> 
+    <form action="/todos/createPosition" method='POST'>
+    </form>
+
+    <a href="/logout">Logout</a>
+    <script src="js/main.js"></script>
+    <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
+    <script>
+        let  data = <%-JSON.stringify(todos)%>
+    new gridjs.Grid({
+        columns: ['Name','Team Average','position','PPG', 'RPG','APG','Blocks','Steals','FG','3Pt%','FT%','assit/to'],
+        data: data
+      }).render(document.getElementById("wrapper"));</script>
+
+</body>
+</html>
