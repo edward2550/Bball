@@ -2,6 +2,8 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
+// 
+// const connectionString =
 const mongoose = require('mongoose')
 const passport = require('passport')
 const session = require('express-session')
@@ -14,6 +16,7 @@ const mainRoutes = require('./routes/main')
 const todoRoutes = require('./routes/todos')
 const statsRoutes = require('./routes/stats')
 const statsSheetsRoutes = require('./routes/statsSheet')
+
 
 
 app.use(cors())
