@@ -1,14 +1,19 @@
-# Introduction
+# BballStats
 
-A Simple ToDo App is built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize the app 
+Keep track of your favorite basketball player or personal 2k stats on hand so you always know - even on the go!
+Bballstats is a basketball stats app for tracking the stats.
 
-# Objectives
+# How It's Made:
+Tech used: Node.js, Express.js, EJS, Passport, Bootstrap & JavaScript
 
-- It's a beginner level app created to understand how MVC concept and logins are added
+BballStats is a full stack web application following MVC architecture. It runs on Node.js and Express for the backend and EJS to render the views. Users can sign up using passport authentication and begin adding new basketball stats items to their inventory. The inventory list can be sorted by several columns and filtered . Individual items can be edited if quantities or other information needs to be updated. 
 
-# Packages/Dependencies used 
 
-bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator
+
+
+# Optimizations
+
+Future iterations might include notifying users when user vote on the player of the year and other awards , filtering items based on multiple categories,  and the ability to add (manually or automatically) new voting system .
 
 
 
