@@ -2,6 +2,7 @@
 
 Keep track of your favorite basketball player or personal 2k stats on hand so you always know - even on the go!
 Bballstats is a basketball stats app for tracking the stats.
+https://user-images.githubusercontent.com/47010869/200956341-317e3a6d-2861-42ef-b3e3-d11ea33a8d8d.png
 
 # How It's Made:
 Tech used: Node.js, Express.js, EJS, Passport, Bootstrap & JavaScript
