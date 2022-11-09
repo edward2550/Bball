@@ -1,6 +1,7 @@
 // install everything with npm 
 const express = require('express')
 const app = express()
+const cors = require('cors')
 const mongoose = require('mongoose')
 const passport = require('passport')
 const session = require('express-session')
@@ -15,7 +16,7 @@ const statsRoutes = require('./routes/stats')
 const statsSheetsRoutes = require('./routes/statsSheet')
 
 
-
+app.use(cors())
 require('dotenv').config({path: './config/.env'})
 
 // Passport config
@@ -28,6 +29,7 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(logger('dev'))
+
 // Sessions
 app.use(
     session({
