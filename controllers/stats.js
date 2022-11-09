@@ -48,8 +48,6 @@ module.exports = {
                 FT:req.body.FtItem,
                 assitTo:req.body.assitToItem,
                 userId: req.user.id,
-                teamO: false,
-                teamD: false,
             })
            
             console.log('Todo has been added!')
