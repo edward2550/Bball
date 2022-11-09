@@ -52,38 +52,6 @@ const StatsSchema = new mongoose.Schema({
   userId: {
     type: String,
   },
-  teamO: {
-  type: Boolean,
-  required: true
-  },
-  teamD: {
-    type: Boolean,
-    required: true
-  },
-  mvp:{
-    type:Boolean,
-    required:true
-  },
-  mip:{
-    type:Boolean,
-    required:true
-  },
-  dpoy:{
-    type:Boolean,
-    required:true
-  },
-  roy:{
-    type:Boolean,
-    required:true
-  },
-  foy:{
-    type:Boolean,
-    required:true
-  },
-  coy:{
-    type:Boolean,
-    required:true
-  },
 })
 
 module.exports = mongoose.model('Stats', StatsSchema)
