@@ -27,18 +27,18 @@
     </div>
     <div class="min-[959px]:hidden flex-none">
       <ul class="menu menu-horizontal bg-base-100 rounded-box">
-        <li><a id=2k22>2k22</a></li>
-        <li><a id="oPlayer">First Team O</a></li>
-        <li><a id="dPlayer">First Team D</a></li>
+        <li><a href='/statsSheet?filter=2k22stats'>2k22</a></li>
+        <li><a href="/statsSheet?filter=offense">First Team O</a></li>
+        <li><a  id="dPlayer1">First Team D</a></li>
       </ul>
       <ul class="menu menu-horizontal bg-base-100 rounded-box">
-        <li><a>FOY</a></li>
-        <li><a>DPOY</a></li>
-        <li><a>MIP</a></li>
+        <li><a id="foy1">FOY</a></li>
+        <li><a id="dpoy1">DPOY</a></li>
+        <li><a id="mip">MIP</a></li>
       </ul>
       <ul class="menu menu-horizontal bg-base-100 rounded-box">
-        <li><a>ROY</a></li>
-        <li><a>COY</a></li>
+        <li><a id="roy1">ROY</a></li>
+        <li><a id="coy1">COY</a></li>
         
       </ul>
     </div>
@@ -47,7 +47,7 @@
     <div class=" bg-base-200">
       <div class=" btn-group ">
         <a class="btn btn-primary modal-button" id='2k22'>2k22</a>
-        <button  id="foy" class="btn p-0"> <label  class="btn btn-primary modal-button">Feeder of the Year</label></button>
+        <button  id="foy" class="btn p-0"> <label class="btn btn-primary modal-button">Feeder of the Year</label></button>
         <button id="oPlayer" class="btn p-0"><label class=" btn btn-primary modal-button">First Team offense</label></button>
         <button  id="dPlayer" class="btn p-0"> <label  class=" btn btn-primary modal-button">First Team Defense</label></button>
         <button  id="mvp" class="btn p-0"> <label  class="btn btn-primary modal-button">MVP</label></button>
@@ -233,6 +233,7 @@
       const royButton = document.getElementById('roy')
       const foyButton = document.getElementById('foy')
       const coyButton = document.getElementById('coy')
+     
 
     
       k22Button.onclick = () => {
@@ -261,12 +262,16 @@
         window.location.href = "/statsSheet?filter=roy"
       }
 
-      
+      foyButton.onclick = () => {
+        window.location.href ="/statsSheet?filter=foy"
+      }
+
 
       coyButton.onclick = () => {
         window.location.href = "/statsSheet?filter=coy"
       }
- 
+
+      
 
 function changResults(callback){
 results = parsedD
