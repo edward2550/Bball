@@ -252,7 +252,7 @@ Edit stats -->
     <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
     <script>
         let  data = <%-JSON.stringify(stats)%>;
-        let user = <%-JSON.stringify(userId)%>;
+        let user = <%-JSON.stringify(user)%>;
       console.log(user)
       console.log(data)
 
@@ -266,11 +266,11 @@ Edit stats -->
       console.log(updateForm)
 
 
-//check user for the right id 
+// check user for the right id 
 let results = []
       function loopData(data,user){
   for(let i = 0; i < data.length; i++){
-    if(data[i][1] == user[0].userId){
+    if(data[i][1] == user._id){
       results.push(data[i])
     }
   }

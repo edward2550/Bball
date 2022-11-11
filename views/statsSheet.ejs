@@ -29,16 +29,16 @@
       <ul class="menu menu-horizontal bg-base-100 rounded-box">
         <li><a href='/statsSheet?filter=2k22stats'>2k22</a></li>
         <li><a href="/statsSheet?filter=offense">First Team O</a></li>
-        <li><a  id="dPlayer1">First Team D</a></li>
+        <li><a  href="/statsSheet?filter=defense">First Team D</a></li>
       </ul>
       <ul class="menu menu-horizontal bg-base-100 rounded-box">
-        <li><a id="foy1">FOY</a></li>
-        <li><a id="dpoy1">DPOY</a></li>
-        <li><a id="mip">MIP</a></li>
+        <li><a href="/statsSheet?filter=foy">FOY</a></li>
+        <li><a href="/statsSheet?filter=dpoy">DPOY</a></li>
+        <li><a href="/statsSheet?filter=mip">MIP</a></li>
       </ul>
       <ul class="menu menu-horizontal bg-base-100 rounded-box">
-        <li><a id="roy1">ROY</a></li>
-        <li><a id="coy1">COY</a></li>
+        <li><a href="/statsSheet?filter=roy">ROY</a></li>
+        <li><a href="/statsSheet?filter=coy">COY</a></li>
         
       </ul>
     </div>
@@ -51,7 +51,7 @@
         <button id="oPlayer" class="btn p-0"><label class=" btn btn-primary modal-button">First Team offense</label></button>
         <button  id="dPlayer" class="btn p-0"> <label  class=" btn btn-primary modal-button">First Team Defense</label></button>
         <button  id="mvp" class="btn p-0"> <label  class="btn btn-primary modal-button">MVP</label></button>
-        <button  id="mip" class="btn p-0"> <label  class="btn btn-primary modal-button">Mip</label></button>
+        <button  id="mip" href="" class="btn p-0"> <label  class="btn btn-primary modal-button">Mip</label></button>
         <button  id="dpoy" class="btn p-0"> <label  class=" btn btn-primary modal-button">DPOY</label></button>
         <button  id="roy" class="btn p-0"> <label  class=" btn btn-primary modal-button">ROY</label></button>
         <button  id="coy" class="btn p-0"> <label  class=" btn btn-primary modal-button">COY</label></button>
@@ -364,7 +364,7 @@ function getOffense(data){
 
   new gridjs.Grid({
       columns: [
-        {name:'Id',hidden:true},{name:'id', hidden:true},'Name','Team Average','position','PPG', 'RPG','APG','Blocks','Steals','FG','3Pt%','FT%','assit/to',user[0].userId == '6359abf3fa08f02a9900d498' ? {
+        {name:'Id',hidden:true},{name:'id', hidden:true},'Name','Team Average','position','PPG', 'RPG','APG','Blocks','Steals','FG','3Pt%','FT%','assit/to',user._id == '6359abf3fa08f02a9900d498' ? {
         name:'Edit',
         formatter:(cell,row) => {
           return gridjs.h('button',{
@@ -377,7 +377,7 @@ function getOffense(data){
           },'Edit')
         }
       } : {name:"Edit" , hidden:true},
-      user[0].userId == '6359abf3fa08f02a9900d498' ? {
+      user._id ==  '6359abf3fa08f02a9900d498' ? {
         name: "Delete" ,
         formatter:(cell,row)  => { 
           return gridjs.h('button',{
